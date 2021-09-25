@@ -2,18 +2,32 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../pages/Login.vue'
 import Home from '../pages/Home.vue'
+import Welcome from '../pages/Welcome.vue'
+import Users from '../pages/user/Users.vue'
 Vue.use(VueRouter)
 const router = new VueRouter({
   routes: [
     // 路由重定向 默认页面为login
-    { path: '/', redirect: '/login' },
+    {
+      path: '/',
+      redirect: '/login'
+    },
     {
       path: '/login',
       component: Login
     },
     {
       path: '/home',
-      component: Home
+      component: Home,
+      redirect: '/welcome',
+      children: [{
+        path: '/welcome',
+        component: Welcome
+      },
+      {
+        path: '/users',
+        component: Users
+      }]
     }
   ]
 })
