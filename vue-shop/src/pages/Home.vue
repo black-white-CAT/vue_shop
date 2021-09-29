@@ -7,7 +7,7 @@
         <img src="../assets/docker.png" alt="">
         <span>docker后台管理系统</span>
       </div>
-      <el-button type="info" @click="logout">退出</el-button>
+      <el-button type="primary" size="mini" @click="logout">退出</el-button>
     </el-header>
     <!-- 主体 -->
     <el-container>
@@ -49,50 +49,50 @@
   </el-container>
 </template>
 <script>
-export default {
-  name: 'home',
-  // 左侧菜单数据获取存放
-  data () {
-    return {
-      menulist: [],
-      iconsObj: {
-        125: 'iconfont icon-user',
-        103: 'iconfont icon-tijikongjian',
-        101: 'iconfont icon-shangpin',
-        102: 'iconfont icon-danju',
-        145: 'iconfont icon-baobiao'
-      },
-      isCollapse: false,
-      activePath: ''
-    }
-  },
+  export default {
+    name: 'home',
+    // 左侧菜单数据获取存放
+    data() {
+      return {
+        menulist: [],
+        iconsObj: {
+          125: 'iconfont icon-user',
+          103: 'iconfont icon-tijikongjian',
+          101: 'iconfont icon-shangpin',
+          102: 'iconfont icon-danju',
+          145: 'iconfont icon-baobiao'
+        },
+        isCollapse: false,
+        activePath: ''
+      }
+    },
 
-  // 等数据代理 数据监控完成后获取菜单数据
-  created () {
-    this.getMenuList()
-    this.activePath = window.sessionStorage.getItem('activePath')
-  },
-  methods: {
-    logout () {
-      window.sessionStorage.clear('token')
-      this.$router.push('/login')
+    // 等数据代理 数据监控完成后获取菜单数据
+    created() {
+      this.getMenuList()
+      this.activePath = window.sessionStorage.getItem('activePath')
     },
-    // 创建getMenuList函数获取菜单数据
-    async getMenuList () { // await 和async 表示翻译返回的promise数据
-      const { data: res } = await this.$http.get('menus') // 没有请求参数  地址为服务器的menus路径
-      if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
-      this.menulist = res.data
-      console.log(res)
-    },
-    toggleCollapse () {
-      this.isCollapse = !this.isCollapse
-    },
-    saveNavState (activePath) {
-      window.sessionStorage.setItem('activePath', activePath)
-      this.activePath = activePath
+    methods: {
+      logout() {
+        window.sessionStorage.clear('token')
+        this.$router.push('/login')
+      },
+      // 创建getMenuList函数获取菜单数据
+      async getMenuList() { // await 和async 表示翻译返回的promise数据
+        const { data: res } = await this.$http.get('menus') // 没有请求参数  地址为服务器的menus路径
+        if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
+        this.menulist = res.data
+        console.log(res)
+      },
+      toggleCollapse() {
+        this.isCollapse = !this.isCollapse
+      },
+      saveNavState(activePath) {
+        window.sessionStorage.setItem('activePath', activePath)
+        this.activePath = activePath
+      }
     }
   }
-}
 </script>
 <style lang="less" scoped>
   .el-header {
@@ -126,10 +126,6 @@ export default {
 
     .el-menu {
       border-right: none;
-
-      .el-menu-item {
-        width: 100%;
-      }
     }
   }
 
@@ -139,10 +135,6 @@ export default {
 
   .home-container {
     height: 100%;
-  }
-
-  .el-button {
-    background-color: #2a73bd;
   }
 
   .el-button:hover {
