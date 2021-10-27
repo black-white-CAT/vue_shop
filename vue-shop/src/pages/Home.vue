@@ -5,7 +5,7 @@
     <el-header>
       <div>
         <img src="../assets/docker.png" alt="">
-        <span>docker后台管理系统</span>
+        <span>docker电商后台管理系统</span>
       </div>
       <el-button type="primary" size="mini" @click="logout">退出</el-button>
     </el-header>

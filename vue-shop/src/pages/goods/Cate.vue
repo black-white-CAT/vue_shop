@@ -38,7 +38,7 @@
             <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
                 :current-page="querInfo.pagenum" :page-sizes="[3, 5, 10, 15]" :page-size="querInfo.pagesize"
                 layout="total, sizes, prev, pager, next, jumper" :total="total">
-            </el-pagination>
+            </el-pagination>`
         </el-card>
         <!-- 添加分类的对话框 -->
         <el-dialog title="添加分类" :visible.sync="addCateDialogVisible" width="50%" @close="addCateDialogClosed">
@@ -210,7 +210,7 @@
                     this.addCateForm.cat_level = 0
                 }
             },
-            // 点击按钮，添加新的分类
+            // 点击按钮 ，添加新的分类
             addCate() {
                 this.$refs.addCateFormRef.validate(async valid => {
                     if (!valid) return
