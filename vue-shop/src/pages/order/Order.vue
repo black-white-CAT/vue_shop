@@ -126,19 +126,12 @@
                 this.queryInfo.pagenum = newPage
                 this.getorderList()
             },
-            //展示修改对话框
-            showBox() {
-                this.addressVisible = true
-            },
             addressDialogClose() {
                 this.$refs.addressFormRef.resetFields()
             },
             // 展示修改地址的对话框
             showBox() {
                 this.addressVisible = true
-            },
-            addressDialogClosed() {
-                this.$refs.addressFormRef.resetFields()
             },
             async showProgressBox() {
                 const { data: res } = await this.$http.get('/kuaidi/804909574412544580')
